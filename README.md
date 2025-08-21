@@ -6,6 +6,8 @@ A simple, client-side HTML email signature generator for professional email sign
 
 Visit the live application: [https://prism-risk-management-pty-ltd.github.io/signature-generator/](https://prism-risk-management-pty-ltd.github.io/signature-generator/)
 
+Direct link to form: [https://prism-risk-management-pty-ltd.github.io/signature-generator/form.html](https://prism-risk-management-pty-ltd.github.io/signature-generator/form.html)
+
 ## ✨ Features
 
 - Clean, professional interface
