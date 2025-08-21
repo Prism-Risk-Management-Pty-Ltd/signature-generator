@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Email Signature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .actions {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #0284c7;
+        }
+
+        .signature-preview {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            background: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Email Signature</h1>
+        <div class="actions">
+            <a href="form.html" class="btn">Create Another</a>
+        </div>
+
+        <div class="signature-preview">
+            <table cellpadding="0" cellspacing="0"
+                style="font-family: 'Arial Rounded MT Bold', 'Nunito Sans', 'Varela Round', 'Comfortaa', 'Quicksand', sans-serif; font-size: 12px; color: #333; max-width: 600px; border-collapse: collapse; width: 100%;">
+                <tr>
+                    <td style="padding: 20px 20px 0 0;">
+                        <p style="margin:0; padding-bottom:1.5rem; font-size:12px; color:#777; font-style:italic;">Make
+                            each day
+                            your Masterpiece</p>
+                        <br />
+                        <p style="margin:0; font-size:24px; font-weight:200; color:#bbb;" id="fullName">
+                            {{FULL_NAME}}
+                        </p>
+                        <p style="margin:0 0 8px 0; font-size:16px; font-weight:200; color:#888;" id="positionTitle">
+                            {{POSITION_TITLE}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 20px 10px 0;">
+                        <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                            <tr>
+                                <!-- Logo Column -->
+                                <td style="vertical-align: middle; width: 200px; min-width: 160px; text-align: center;">
+                                    <img src="https://storage.googleapis.com/prm-public-images/prm-signature-logo.jpg"
+                                        alt="PRM Logo"
+                                        style="width: 100%; max-width: 280px; min-width: 140px; max-height: 90px; height: auto; display: block; margin: 0 auto; object-fit: contain;">
+                                </td>
+                                <!-- Contact Column -->
+                                <td style="vertical-align: middle; padding-left: 10px;">
+                                    <!-- Default company telephone -->
+                                    <p style="margin:0 0 3px 0; font-size:11px;">
+                                        <span style="display:inline-block; width:18px;">📞</span>
+                                        <a href="tel:+27218910417" style="color:#333; text-decoration:none;">021 891 0417</a>
+                                    </p>
+                                    <!-- Optional user phone number -->
+                                    <p style="margin:0 0 3px 0; font-size:11px;" id="userPhoneRow">
+                                        <span style="display:inline-block; width:18px;">📞</span>
+                                        <a href="tel:{{USER_PHONE_HREF}}" style="color:#333; text-decoration:none;"
+                                            id="userPhoneLink">{{USER_PHONE_DISPLAY}}</a>
+                                    </p>
+                                    <!-- User email -->
+                                    <p style="margin:0 0 3px 0; font-size:11px;">
+                                        <span style="display:inline-block; width:18px;">✉️</span>
+                                        <a href="mailto:{{EMAIL}}" style="color:#00a7b5; text-decoration:none;"
+                                            id="emailLink">{{EMAIL}}</a>
+                                    </p>
+                                    <!-- Default company website -->
+                                    <p style="margin:0 0 8px 0; font-size:11px;">
+                                        <span style="display:inline-block; width:18px;">🌐</span>
+                                        <a href="https://www.prismrm.co.za"
+                                            style="color:#00a7b5; text-decoration:none;">www.prismrm.co.za</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- FSP Row -->
+                                <td colspan="2" style="padding-top: 8px;">
+                                    <p
+                                        style="margin:0; font-size:9px; color:#777; text-align: left; font-weight: normal; font-family: Arial, sans-serif;">
+                                        FSP 49962
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"
+                        style="padding: 5px 20px 0 0; font-size:9px; color:#666; max-width: 100%; word-wrap: break-word; line-height: 1.4; font-weight: normal; font-family: Arial, sans-serif;">
+                        CYBER RISK WARNING: Beware of cyber fraud. Always confirm banking details with us on a trusted
+                        number
+                        before making payments. We will never advise changes to banking details by email. Prism Risk
+                        Management
+                        is not liable for losses from cybercrime or email compromise.
+                        <br />
+                        DISCLAIMER: This email is confidential and intended only for the recipient. If received in
+                        error, delete
+                        it and notify the sender. Prism Risk Management accepts no liability for loss arising from use
+                        of this
+                        email. Email integrity and security cannot be guaranteed. E&OE.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div
+            style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196f3; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #1976d2;">How to use your signature:</h3>
+            <ol style="color: #555; line-height: 1.6;">
+                <li>Highlight the signature in the box above and press <strong>Cmd+C</strong> (Mac) or <strong>Ctrl+C</strong> (Windows) to copy</li>
+                <li>Open your email client (Outlook, Gmail, etc.)</li>
+                <li>Go to Settings → Signature</li>
+                <li>Paste the copied signature</li>
+                <li><strong>Important:</strong> Resize the logo image width to <strong>7.2cm</strong> after pasting</li>
+                <li>Save your settings</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Function to populate signature with form data
+        function populateSignature(data) {
+            const fullName = data.firstName + ' ' + data.lastName;
+            document.getElementById('fullName').textContent = fullName;
+            document.getElementById('positionTitle').textContent = data.positionTitle;
+            document.getElementById('emailLink').textContent = data.email;
+            document.getElementById('emailLink').href = 'mailto:' + data.email;
+
+            // Handle optional user phone number
+            const userPhoneRow = document.getElementById('userPhoneRow');
+            const userPhoneLink = document.getElementById('userPhoneLink');
+
+            if (data.phone && data.phone.trim() !== '') {
+                userPhoneLink.textContent = data.phone;
+                userPhoneLink.href = 'tel:' + data.phone.replace(/\s/g, '');
+                userPhoneRow.style.display = 'block';
+            } else {
+                userPhoneRow.style.display = 'none';
+            }
+        }
+
+        // Check for form data in localStorage and populate
+        window.addEventListener('load', function () {
+            const formData = localStorage.getItem('signatureData');
+            if (formData) {
+                const data = JSON.parse(formData);
+                populateSignature(data);
+                // Clear the data after use
+                localStorage.removeItem('signatureData');
+            }
+        });
+    </script>
+</body>
+
+</html>

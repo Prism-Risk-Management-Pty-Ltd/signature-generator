@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signature Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+            font-size: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            background-color: #fafbfc;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        .optional {
+            color: #888;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        
+        .submit-btn {
+            background-color: #1e40af;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .submit-btn:active {
+            background-color: #1e3a8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="logo">
+            <img src="https://storage.googleapis.com/prm-public-images/prm-signature-logo.jpg" alt="PRM Logo">
+        </div>
+        
+        <h1>Email Signature Generator</h1>
+        
+        <form id="userForm" action="#" method="POST">
+            <div class="form-group">
+                <label for="firstName">
+                    First Name <span class="required">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="firstName" 
+                    name="firstName" 
+                    required 
+                    placeholder="Enter your first name"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">
+                    Last Name <span class="required">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="lastName" 
+                    name="lastName" 
+                    required 
+                    placeholder="Enter your last name"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="positionTitle">
+                    Position Title <span class="required">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="positionTitle" 
+                    name="positionTitle" 
+                    required 
+                    placeholder="Enter your position title"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="email">
+                    Email Address <span class="required">*</span>
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    placeholder="Enter your email address"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">
+                    Phone Number <span class="optional">(optional)</span>
+                </label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="Enter your phone number"
+                >
+            </div>
+            
+            <button type="submit" class="submit-btn">Generate Signature</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validate required fields
+            if (!data.firstName || !data.lastName || !data.positionTitle || !data.email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Store data in localStorage for the results page
+            localStorage.setItem('signatureData', JSON.stringify(data));
+            
+            // Show loading message
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Generating Signature...';
+            submitBtn.disabled = true;
+            
+            // Simulate processing time and redirect
+            setTimeout(function() {
+                window.location.href = 'results.html';
+            }, 1000);
+        });
+        
+        // Form validation feedback
+        const inputs = document.querySelectorAll('input[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#e74c3c';
+                } else {
+                    this.style.borderColor = '#667eea';
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.style.borderColor === 'rgb(231, 76, 60)') {
+                    this.style.borderColor = '#e1e8ed';
+                }
+            });
+        });
+        
+        // Email validation
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                this.style.borderColor = '#e74c3c';
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.style.borderColor = this.value ? '#667eea' : '#e1e8ed';
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>
